@@ -1,3 +1,4 @@
+const am = require('am')
 const { digestAll } = require('./prime.js')
 
 function factorial(x) {
@@ -10,10 +11,11 @@ function factorial(x) {
 }
 
 function main(x) {
+    x = Number(x)
 	if (x < 2) {
 		console.error("The number should be bigger than 2")
 	}
 	console.log(`${x}! = ${factorial(x)}`)
 }
 
-main(Number(process.argv[2]))
+am(main)
