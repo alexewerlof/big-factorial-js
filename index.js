@@ -4,9 +4,9 @@ const { digestAll } = require('./prime.js')
 function factorial(x) {
     const pows = digestAll(x)
     const primes = Object.keys(pows).map(Number)
-    return primes.reduce((sum, p) => {
-        sum *= BigInt(p) ** BigInt(pows[p])
-        return sum
+    return primes.reduce((result, p) => {
+        result *= BigInt(p) ** BigInt(pows[p])
+        return result
     }, 1n)
 }
 
