@@ -40,7 +40,7 @@ function digestAll(n) {
 		})
 		//console.log("digest", i, res)
 	}
-	console.dir(pows)
+	// console.dir(pows)
 	return pows
 }
 
