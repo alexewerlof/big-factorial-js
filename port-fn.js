@@ -93,4 +93,15 @@ class Register {
     }
 }
 
-module.exports = { Register }
+const proxyHandlers = {
+    get: function(target, prop, receiver) {
+        return (...params) => target.invoke(prop, ...params)
+    }
+}
+
+function register(port, ...handlers) {
+    const reg = new Register(port, ...handlers)
+    return new Proxy(reg, proxyHandlers)
+}
+
+module.exports = { register }
